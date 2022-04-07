@@ -11,11 +11,18 @@ use app\models\Post;
 <?= GridView::widget([
     'dataProvider' => $sqlProvider,
     'columns' => [
+      ['class' => 'yii\grid\SerialColumn'],
+
       'id',
       'user_id',
       'name',
       'body',
-      'action'
+      // action buttons
+      [
+        'class' => 'yii\grid\ActionColumn',
+        'template' => '{update} {delete}'
+      ],
+
     ],
 ]) ?>
 
