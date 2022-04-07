@@ -245,6 +245,16 @@ class SiteController extends Controller
 
 
     }
+    //show single post
+
+    public function actionShowPost($id){
+        $post = Post::find()->one();
+        if ($post === null) {
+            throw new NotFoundHttpException;
+        }
+        return $this->render('show-post', ['post'=>$post]);
+    }
+
     //edit post
     public function actionEditPost($id){
 
